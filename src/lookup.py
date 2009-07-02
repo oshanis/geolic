@@ -168,10 +168,29 @@ class LookupTable:
                       ("NL","BY-SA"): "X",
                       ("NL","SA"): "X",
                       ("NL","ARR"): "X",
-                      ("NL","NL"): "X"}
+                      ("NL","NL"): "X",
+                      ("PD","X"): "X",
+                      ("CC0","X"): "X",
+                      ("BY","X"): "X",
+                      ("BY-NC","X"): "X",
+                      ("BY-NC-ND","X"): "X",
+                      ("BY-NC-ND-SA","X"): "X",
+                      ("BY-NC-SA","X"): "X",
+                      ("BY-ND","X"): "X",
+                      ("BY-ND-SA","X"): "X",
+                      ("BY-SA","X"): "X",
+                      ("ARR","X"): "X",
+                      ("NL","X"): "X",
+                      ("X","X"): "X"}
 
-    def query(self, license1, license2):
-        """lookup the resultant license given the 2 components"""
-        return self.table[(license1, license2)]
+    def query(self, license, licenselist):
+        """Recursive function to lookup the resultant license given the license components
+        The 'licenselist' should always be sent as a list, and the 'license' should always be sent as a string"""
+        if len(licenselist) == 1:
+            return self.table[(license, licenselist[0])]
+        else:
+            return self.table[(license, self.query(licenselist[0], licenselist[1:len(licenselist)]))]
+
+    
 
 
