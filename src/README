@@ -1,7 +1,14 @@
+Version as of 07/01/2009
+
 ===Installation===
+Copy the mashup.py and lookup.py to a CGI enabled path on your web server.
+chmod +x mashup.py lookup.py
+Your endpoint will be http://your_server_path/mashup.py
 
 ===Requirements===
+Requires Python, Apache2 HTTP Server
 
 ===Credits===
+(Add your name and email if you contribute to this project)
 
 Oshani Seneviratne(oshani@csail.mit.edu)
