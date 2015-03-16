@@ -1,0 +1,1 @@
+This project is an effort to mashup geo spatial data in a license aware manner.
